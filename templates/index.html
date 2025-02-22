@@ -1,28 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ title }}</title>
+    <meta charset="UTF-8">
+    <title>Stroke Services Foundation</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .jumbotron {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-secondary {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">First Flask App</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
     <div class="container mt-5">
-        <h1>Welcome, {{ username }}!</h1>
-        <p>This is the dashboard.</p>
+        <div class="jumbotron text-center">
+            <h1>Welcome to Stroke Services Foundation</h1>
+            <p>Our mission is to provide comprehensive care and support for stroke patients and their families. We are dedicated to improving the quality of life for those affected by stroke through education, advocacy, and research.</p>
+        </div>
+        
+        <h2>Our Services</h2>
+        <ul class="list-group mb-4">
+            <li class="list-group-item">Stroke Prevention Programs</li>
+            <li class="list-group-item">Rehabilitation Services</li>
+            <li class="list-group-item">Support Groups</li>
+            <li class="list-group-item">Educational Workshops</li>
+            <li class="list-group-item">Research and Advocacy</li>
+        </ul>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Contact Us</h2>
+                <p>If you have any questions or need assistance, please contact us at:</p>
+                <p>Email: info@strokeservicesfoundation.org</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="col-md-4">
+                <h2>Login</h2>
+                <p><a href="{{ url_for('login') }}" class="btn btn-primary">Login</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Register</h2>
+                <p><a href="{{ url_for('register') }}" class="btn btn-secondary">Register</a></p>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Patient Medical Data Registration</h2>
+        <p><a href="{{ url_for('patients') }}" class="btn btn-primary">Go to Patient Medical Data Registration</a></p>
     </div>
 </body>
 </html>

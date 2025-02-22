@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Patient Record</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Edit Patient Record</h2>
+        <form method="POST" action="{{ url_for('edit_patient', patient_id=patient['_id']) }}">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="text" class="form-control" id="id" name="id" value="{{ patient.id }}" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="Male" {% if patient.gender == 'Male' %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if patient.gender == 'Female' %}selected{% endif %}>Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" value="{{ patient.age }}" required>
+            </div>
+            <div class="form-group">
+                <label for="hypertension">Hypertension:</label>
+                <select class="form-control" id="hypertension" name="hypertension" required>
+                    <option value="0" {% if patient.hypertension == '0' %}selected{% endif %}>No</option>
+                    <option value="1" {% if patient.hypertension == '1' %}selected{% endif %}>Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="heart_disease">Heart Disease:</label>
+                <select class="form-control" id="heart_disease" name="heart_disease" required>
+                    <option value="0" {% if patient.heart_disease == '0' %}selected{% endif %}>No</option>
+                    <option value="1" {% if patient.heart_disease == '1' %}selected{% endif %}>Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ever_married">Ever Married:</label>
+                <select class="form-control" id="ever_married" name="ever_married" required>
+                    <option value="No" {% if patient.ever_married == 'No' %}selected{% endif %}>No</option>
+                    <option value="Yes" {% if patient.ever_married == 'Yes' %}selected{% endif %}>Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="work_type">Work Type:</label>
+                <select class="form-control" id="work_type" name="work_type" required>
+                    <option value="children" {% if patient.work_type == 'children' %}selected{% endif %}>Children</option>
+                    <option value="Govt_job" {% if patient.work_type == 'Govt_job' %}selected{% endif %}>Govt Job</option>
+                    <option value="Never_worked" {% if patient.work_type == 'Never_worked' %}selected{% endif %}>Never Worked</option>
+                    <option value="Private" {% if patient.work_type == 'Private' %}selected{% endif %}>Private</option>
+                    <option value="Self-employed" {% if patient.work_type == 'Self-employed' %}selected{% endif %}>Self-employed</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Residence_type">Residence Type:</label>
+                <select class="form-control" id="Residence_type" name="Residence_type" required>
+                    <option value="Rural" {% if patient.Residence_type == 'Rural' %}selected{% endif %}>Rural</option>
+                    <option value="Urban" {% if patient.Residence_type == 'Urban' %}selected{% endif %}>Urban</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="avg_glucose_level">Average Glucose Level:</label>
+                <input type="number" step="0.01" class="form-control" id="avg_glucose_level" name="avg_glucose_level" value="{{ patient.avg_glucose_level }}" required>
+            </div>
+            <div class="form-group">
+                <label for="bmi">BMI:</label>
+                <input type="number" step="0.1" class="form-control" id="bmi" name="bmi" value="{{ patient.bmi }}" required>
+            </div>
+            <div class="form-group">
+                <label for="smoking_status">Smoking Status:</label>
+                <select class="form-control" id="smoking_status" name="smoking_status" required>
+                    <option value="formerly smoked" {% if patient.smoking_status == 'formerly smoked' %}selected{% endif %}>Formerly Smoked</option>
+                    <option value="never smoked" {% if patient.smoking_status == 'never smoked' %}selected{% endif %}>Never Smoked</option>
+                    <option value="smokes" {% if patient.smoking_status == 'smokes' %}selected{% endif %}>Smokes</option>
+                    <option value="Unknown" {% if patient.smoking_status == 'Unknown' %}selected{% endif %}>Unknown</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</body>
+</html>
